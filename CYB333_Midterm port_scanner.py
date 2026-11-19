@@ -72,5 +72,5 @@ def main():                                                                     
     print("-" * 50)                                                                                       # Print a final divider line.
 
 
-if __name__ == "__main__":                                                                                # Only run main() if this file is run directly (not if it is imported into another script).
+if __name__ == "__main__":                                                                                # Only run main() if this file is run directly.
     main()  
