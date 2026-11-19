@@ -1,11 +1,9 @@
 # port_scanner.py
 # A simple TCP port scanner. It asks for a target and a list or range of ports,
 # tries to connect to each port, and reports which ports are OPEN or CLOSED.
-# Only scan computers you own or have permission to scan (scanme.nmap.org allows it).
 
 import socket                                                                                             # Bring in Python's built-in "socket" library, which lets programs talk over a network.
 import time                                                                                               # Bring in the "time" library so we can measure how long the scan takes.
-from datetime import datetime                                                                             # Bring in "datetime" so we can print the current date and time (timestamps for screenshots).
 
 TIMEOUT = 0.5                                                                                             # How many seconds to wait for each port to answer before giving up and calling it closed.
 
@@ -50,7 +48,6 @@ def main():                                                                     
     print("-" * 50)                                                                                       # Print a divider line to make the output easier to read.
     print(f"Scanning {target} ({ip_address})")                                                            # Show which target and IP address we are about to scan.
     print(f"Ports to scan: {len(ports)}")                                                                 # Show how many ports we are going to check.
-    print(f"Scan started:  {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")                               # Show the exact date and time the scan started (timestamp for verification).
     print("-" * 50)                                                                                       # Print another divider line.
 
     start_time = time.perf_counter()                                                                      # Record the starting time so we can measure how long the scan takes.
@@ -70,11 +67,10 @@ def main():                                                                     
 
     elapsed = time.perf_counter() - start_time                                                            # Work out how many seconds the scan took by subtracting the start time from the current time.
     print("-" * 50)                                                                                       # Print a divider line before the summary.
-    print(f"Scan finished: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")                               # Show the exact date and time the scan finished (timestamp for verification).
     print(f"Time taken:    {elapsed:.2f} seconds")                                                        # Show how long the scan took, rounded to 2 decimal places.
     print(f"Open ports:    {open_ports if open_ports else 'None'}")                                       # Show the list of open ports, or "None" if we didn't find any.
     print("-" * 50)                                                                                       # Print a final divider line.
 
 
 if __name__ == "__main__":                                                                                # Only run main() if this file is run directly (not if it is imported into another script).
-    main()                                                                                                # Start the scanner.
+    main()  
